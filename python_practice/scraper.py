@@ -13,12 +13,9 @@ class Scraper:
         for tag in sp.find_all("a"):
             url = tag.get("href")
             if url is None:
-                print("Moving now")
                 continue
             if "html" in url:
                 print("\n"+url)
-            else:
-                print("m")
 
 news = "https://news.google.com/"
 Scraper(news).scrape()
