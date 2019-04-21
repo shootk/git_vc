@@ -12,10 +12,14 @@ class Scraper:
         sp = BeautifulSoup(html,parser)
         for tag in sp.find_all("a"):
             url = tag.get("href")
+            cl = tag.get("class")
             if url is None:
                 continue
-            if "html" in url:
+            if cl == "VDXfz":
+                url = url.replace(".","https://news.google.com")
+                url = url.replace("en-US","ja")
+                url = url.replace("US","JP")
+                url = url.replace("en","ja")
                 print("\n"+url)
-
-news = "https://news.google.com/"
+news = "https://news.google.com/?hl=ja&gl=JP&ceid=JP:ja"
 Scraper(news).scrape()
