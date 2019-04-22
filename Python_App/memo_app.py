@@ -19,11 +19,11 @@ class MyApp(wx.Frame):
         self.SetSize((420, 320))
         self.Show()
 
-        panel_ui = wx.Panel(self, -1, pos=(50, 50), size=(300, 200))
+        panel_ui = wx.Panel(self, -1, pos=(10, 10), size=(400, 300))
 
         self.label = wx.StaticText(panel_ui, -1, '', pos=(10, 10))
 
-        self.box = wx.TextCtrl(panel_ui, -1, pos=(10, 50))
+        self.box = wx.TextCtrl(panel_ui, -1, pos=(10, 50), size=(400, 300), style=wx.TE_MULTILINE)
 
         btn = wx.Button(panel_ui, -1, 'yyy', pos=(10, 90))
         btn.Bind(wx.EVT_BUTTON, self.clicked)
@@ -32,6 +32,15 @@ class MyApp(wx.Frame):
         """テキストボックスをクリックした際のアクション"""
         text = self.box.GetValue()
         self.label.SetLabel(text)
+
+class Memo:
+    """y"""
+    def __init__(self, time):
+        self.time = time
+        self.text = []
+
+    def input(self):
+        """kl"""
 
 if __name__ == "__main__":
     APP = wx.App()
